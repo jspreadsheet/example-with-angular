@@ -25,16 +25,18 @@ Make sure import the CSS and JS classes in your angular.json file
 <pre>
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import * as jexcel from 'jexcel';
+
 @Component({
   selector: 'app-jexcel-spreadsheet',
   templateUrl: './jexcel-spreadsheet.component.html',
   styleUrls: ['./jexcel-spreadsheet.component.css']
-})
-export class JexcelSpreadsheetComponent implements OnInit, AfterViewInit{
+});
+
+export class JexcelSpreadsheetComponent implements OnInit, AfterViewInit {
   @ViewChild('spreadsheet') spreadsheet: ElementRef;
   constructor() { }
 
-  data = [
+  var data = [
     ['Mazda', 2001, 2000],
     ['Pegeout', 2010, 5000],
     ['Honda Fit', 2009, 3000],
@@ -42,7 +44,6 @@ export class JexcelSpreadsheetComponent implements OnInit, AfterViewInit{
 ];
 
   ngOnInit(): void {
-
   }
 
   ngAfterViewInit() {

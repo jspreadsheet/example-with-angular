@@ -1,27 +1,55 @@
-# JexcelAngular
+# Jexcel with Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+## Style
 
-## Development server
+Make sure import the CSS and JS classes in your angular.json file
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+"styles": [
+              ...
+              "./node_modules/jexcel/dist/jexcel.css"
+            ],
+            "scripts": [
+              "./node_modules/jexcel/dist/jexcel.js"
+            ]
 
-## Code scaffolding
+## HTML FILE
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<div #spreadsheet></div>
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Typescript file
 
-## Running unit tests
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import * as jexcel from 'jexcel';
+@Component({
+  selector: 'app-jexcel-spreadsheet',
+  templateUrl: './jexcel-spreadsheet.component.html',
+  styleUrls: ['./jexcel-spreadsheet.component.css']
+})
+export class JexcelSpreadsheetComponent implements OnInit, AfterViewInit{
+  @ViewChild('spreadsheet') spreadsheet: ElementRef;
+  constructor() { }
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  data = [
+    ['Mazda', 2001, 2000],
+    ['Pegeout', 2010, 5000],
+    ['Honda Fit', 2009, 3000],
+    ['Honda CRV', 2010, 6000],
+];
 
-## Running end-to-end tests
+  ngOnInit(): void {
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  }
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  ngAfterViewInit() {
+    jexcel(this.spreadsheet.nativeElement, {
+      data: this.data,
+        columns: [
+          { title: 'Model', width: 300 },
+          { title: 'Price', width: 80 },
+          { title: 'Model', width: 100 }
+      ],
+      minDimensions: [10, 10]
+    });
+  }
+}

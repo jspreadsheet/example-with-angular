@@ -14,11 +14,13 @@ Make sure import the CSS and JS classes in your angular.json file
 
 ## HTML FILE
 
-<div #spreadsheet></div>
-
+<pre>
+&#60;div #spreadsheet>&#60;/div>
+</pre>
 
 ## Typescript file
 
+<pre>
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import * as jexcel from 'jexcel';
 @Component({
@@ -53,3 +55,4 @@ export class JexcelSpreadsheetComponent implements OnInit, AfterViewInit{
     });
   }
 }
+</pre>

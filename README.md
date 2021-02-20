@@ -7,10 +7,12 @@ Make sure import the CSS and JS classes in your angular.json file
 <pre>
 "styles": [
   ...
-  "./node_modules/jexcel/dist/jexcel.css"
+  "./node_modules/jexcel/dist/jexcel.css",
+  "./node_modules/jsuites/dist/jsuites.css"
 ],
 "scripts": [
-  "./node_modules/jexcel/dist/jexcel.js"
+  "./node_modules/jexcel/dist/jexcel.js",
+  "./node_modules/jsuites/dist/jsuites.js"
 ]
 </pre>
 

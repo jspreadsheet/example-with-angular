@@ -1,4 +1,4 @@
-# Jexcel with Angular
+# Jspreadsheet with Angular
 
 ## Style
 
@@ -7,11 +7,11 @@ Make sure import the CSS and JS classes in your angular.json file
 <pre>
 "styles": [
   ...
-  "./node_modules/jexcel/dist/jexcel.css",
+  "./node_modules/jspreadsheet-ce/dist/jexcel.css",
   "./node_modules/jsuites/dist/jsuites.css"
 ],
 "scripts": [
-  "./node_modules/jexcel/dist/jexcel.js",
+  "./node_modules/jspreadsheet-ce/dist/jexcel.js",
   "./node_modules/jsuites/dist/jsuites.js"
 ]
 </pre>
@@ -26,7 +26,7 @@ Make sure import the CSS and JS classes in your angular.json file
 
 <pre>
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import * as jexcel from 'jexcel';
+import * as jspreadsheet from 'jspreadsheet-ce';
 
 @Component({
   selector: 'app-jexcel-spreadsheet',
@@ -49,7 +49,7 @@ export class JexcelSpreadsheetComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    jexcel(this.spreadsheet.nativeElement, {
+    jspreadsheet(this.spreadsheet.nativeElement, {
       data: this.data,
         columns: [
           { title: 'Model', width: 300 },

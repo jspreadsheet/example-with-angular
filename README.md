@@ -1,63 +1,27 @@
-# Jspreadsheet with Angular
+# angular-jspreadsheet
 
-## Style
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
-Make sure import the CSS and JS classes in your angular.json file
+## Development server
 
-<pre>
-"styles": [
-  ...
-  "./node_modules/jspreadsheet-ce/dist/jexcel.css",
-  "./node_modules/jsuites/dist/jsuites.css"
-],
-"scripts": [
-  "./node_modules/jspreadsheet-ce/dist/jexcel.js",
-  "./node_modules/jsuites/dist/jsuites.js"
-]
-</pre>
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## HTML FILE
+## Code scaffolding
 
-<pre>
-&#60;div #spreadsheet>&#60;/div>
-</pre>
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Typescript file
+## Build
 
-<pre>
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import * as jspreadsheet from 'jspreadsheet-ce';
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-@Component({
-  selector: 'app-jexcel-spreadsheet',
-  templateUrl: './jexcel-spreadsheet.component.html',
-  styleUrls: ['./jexcel-spreadsheet.component.css']
-});
+## Running unit tests
 
-export class JexcelSpreadsheetComponent implements OnInit, AfterViewInit {
-  @ViewChild('spreadsheet') spreadsheet: ElementRef;
-  constructor() { }
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-  var data = [
-    ['Mazda', 2001, 2000],
-    ['Pegeout', 2010, 5000],
-    ['Honda Fit', 2009, 3000],
-    ['Honda CRV', 2010, 6000],
-];
+## Running end-to-end tests
 
-  ngOnInit(): void {
-  }
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-  ngAfterViewInit() {
-    jspreadsheet(this.spreadsheet.nativeElement, {
-      data: this.data,
-        columns: [
-          { title: 'Model', width: 300 },
-          { title: 'Price', width: 80 },
-          { title: 'Model', width: 100 }
-      ],
-      minDimensions: [10, 10]
-    });
-  }
-}
-</pre>
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
